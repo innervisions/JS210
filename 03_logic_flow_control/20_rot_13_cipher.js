@@ -1,17 +1,18 @@
-const CHAR_CODE_A = 'A'.charCodeAt(0);
-const CHAR_CODE_a = 'a'.charCodeAt(0)
+const UPPER_A_CODE = 'A'.charCodeAt(0);
+const LOWER_A_CODE = 'a'.charCodeAt(0)
 const ROTATION = 13;
 
 function rotateChar(char) {
   let asciiCode = char.charCodeAt(0);
   let shiftedCode;
   if (char >= 'A' && char <= 'Z') {
-    shiftedCode = ((asciiCode - CHAR_CODE_A + ROTATION) % 26) + CHAR_CODE_A;
+    shiftedCode = ((asciiCode - UPPER_A_CODE + ROTATION) % 26) + UPPER_A_CODE;
   } else if (char >= 'a' && char <= 'z') {
-    shiftedCode = ((asciiCode - CHAR_CODE_a + ROTATION) % 26) + CHAR_CODE_a;
+    shiftedCode = ((asciiCode - LOWER_A_CODE + ROTATION) % 26) + LOWER_A_CODE;
   } else {
     shiftedCode = asciiCode;
   }
+  
   return String.fromCharCode(shiftedCode);
 }
 
