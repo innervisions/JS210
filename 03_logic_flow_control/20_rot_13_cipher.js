@@ -1,14 +1,17 @@
 const UPPER_A_CODE = 'A'.charCodeAt(0);
-const LOWER_A_CODE = 'a'.charCodeAt(0)
+const LOWER_A_CODE = 'a'.charCodeAt(0);
+const UPPER_Z_CODE = 'Z'.charCodeAt(0);
+const LOWER_Z_CODE = 'z'.charCodeAt(0);
 const ROTATION = 13;
+const LETTERS_IN_ALPHABET = 26;
 
 function rotateChar(char) {
   let asciiCode = char.charCodeAt(0);
   let shiftedCode;
-  if (char >= 'A' && char <= 'Z') {
-    shiftedCode = ((asciiCode - UPPER_A_CODE + ROTATION) % 26) + UPPER_A_CODE;
-  } else if (char >= 'a' && char <= 'z') {
-    shiftedCode = ((asciiCode - LOWER_A_CODE + ROTATION) % 26) + LOWER_A_CODE;
+  if (asciiCode >= UPPER_A_CODE && asciiCode <= UPPER_Z_CODE) {
+    shiftedCode = ((asciiCode - UPPER_A_CODE + ROTATION) % LETTERS_IN_ALPHABET) + UPPER_A_CODE;
+  } else if (asciiCode >= LOWER_A_CODE && asciiCode <= LOWER_Z_CODE) {
+    shiftedCode = ((asciiCode - LOWER_A_CODE + ROTATION) % LETTERS_IN_ALPHABET) + LOWER_A_CODE;
   } else {
     shiftedCode = asciiCode;
   }
